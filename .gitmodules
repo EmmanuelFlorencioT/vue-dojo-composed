@@ -1,0 +1,6 @@
+[submodule "v-dojo"]
+	path = v-dojo
+	url = https://github.com/EmmanuelFlorencioT/v-dojo
+[submodule "dojo-server"]
+	path = dojo-server
+	url = https://github.com/EmmanuelFlorencioT/dojo-server

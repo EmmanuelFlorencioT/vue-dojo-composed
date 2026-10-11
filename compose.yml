@@ -1,0 +1,30 @@
+services:
+  backend:
+    build:
+      context: ./dojo-server
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3031:8080"
+    volumes:
+      - ./dojo-server:/app
+      - /app/node_modules
+    command: ["pnpm", "dev"]
+    networks:
+      - fullstack_dojo_net
+      
+  frontend:
+    build:
+      context: ./v-dojo
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5174:5173"
+    volumes:
+      - ./v-dojo:/app
+      - /app/node_modules
+    command: ["pnpm", "dev", "--host", "0.0.0.0"]
+    networks:
+      - fullstack_dojo_net
+      
+networks:
+  fullstack_dojo_net:
+    driver: bridge
